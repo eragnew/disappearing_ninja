@@ -8,21 +8,22 @@ def index():
 
 @app.route('/ninja')
 def all():
-	return render_template('ninjas.html')
+	filenames = ['leonardo.jpg', 'michelangelo.jpg', 'raphael.jpg', 'donatello.jpg']
+	return render_template('ninja.html', filenames=filenames)
 
 @app.route('/ninja/<color>')
 def ninja(color):
 	if color == 'blue':
-		filename = 'leonardo.jpg'
+		filenames = ['leonardo.jpg']
 	elif color == 'orange':
-		filename = 'michelangelo.jpg'
+		filenames = ['michelangelo.jpg']
 	elif color == 'red':
-		filename = 'raphael.jpg'
+		filenames = ['raphael.jpg']
 	elif color == 'purple':
-		filename = 'donatello.jpg'
+		filenames = ['donatello.jpg']
 	else:
-		filename = 'notapril.jpg'
-	return render_template('ninja.html', filename=filename)
+		filenames = ['notapril.jpg']
+	return render_template('ninja.html', filenames=filenames)
 
 app.run(debug=True)
 
